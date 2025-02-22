@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "isolatedModules": true,
+      "sourceMap": true,
+      "target": "ESNext",
+      "rootDir": "src",
+    }
+  }

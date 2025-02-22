@@ -5,14 +5,21 @@ const boardElement = document.getElementById("board");
 const ROW_COUNT = 3;
 const COL_COUNT = 3;
 
-let boardState = [
+type Cell = "X" | "O" | ""
+type Board = [
+  [Cell, Cell, Cell],
+  [Cell, Cell, Cell],
+  [Cell, Cell, Cell]
+]
+
+let boardState: Board = [
   ["", "", ""],
   ["", "", ""],
   ["", "", ""]
 ];
 let currentMove = "X";
 
-function createCell(row, col, content = "") {
+function createCell(row: number, col: number, content: Cell = "") {
   const cell = document.createElement("button");
   cell.setAttribute("data-row", row.toString());
   cell.setAttribute("data-col", col.toString());

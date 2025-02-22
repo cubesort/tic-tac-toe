@@ -17,7 +17,7 @@ let boardState: Board = [
   ["", "", ""],
   ["", "", ""]
 ];
-let currentMove = "X";
+let currentMove: "X" | "O" = "X";
 
 function createCell(row: number, col: number, content: Cell = "") {
   const cell = document.createElement("button");
@@ -25,6 +25,17 @@ function createCell(row: number, col: number, content: Cell = "") {
   cell.setAttribute("data-col", col.toString());
   cell.setAttribute("data-content", content);
   cell.classList.add("cell");
+
+  cell.addEventListener("click", () => {
+
+    if (boardState[row][col] === "") {
+      boardState[row][col] = currentMove
+      currentMove = currentMove === "X" ? "O" : "X"
+
+      renderBoard()
+    }
+  })
+
   return cell;
 }
 
